@@ -1,0 +1,26 @@
+class Game{
+
+ //constructor(){}
+
+ getState(){
+
+   var gameStateRef = database.ref("gameState");
+   gameStateRef.on("value", function(data){
+       gameState = data.val()})
+ }
+ 
+  writeState(state){
+    database.ref("/").update({ 
+        gameState:state
+    })
+  }
+
+  start(){
+      if(gameState===0){
+       form = new Form();
+       form.display();
+       player = new Player();
+       player.getCount();   
+      }
+  }
+}
